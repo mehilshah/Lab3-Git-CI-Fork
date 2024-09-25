@@ -1,6 +1,7 @@
 package com.bp5308.lab2.content.controller;
 
 import com.bp5308.lab2.content.dto.PostCreationRequest;
+import com.bp5308.lab2.content.entity.DeleteResponse;
 import com.bp5308.lab2.content.entity.Post;
 import com.bp5308.lab2.content.services.PostService;
 import com.bp5308.lab2.user.entity.User;
@@ -36,9 +37,11 @@ public class PostController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable String id) {
+    public ResponseEntity<DeleteResponse> delete(@PathVariable String id) {
         postService.deletePost(id);
-        String message = "ID " + id + " deleted successfully";
-        return ResponseEntity.status(HttpStatus.OK).body(message);
+        DeleteResponse deleteResponse = new DeleteResponse();
+        deleteResponse.setId(Integer.valueOf(id));
+        deleteResponse.setMessage("ID " + id + "has been deleted successfully");
+        return ResponseEntity.status(HttpStatus.OK).body(deleteResponse);
     }
 }
