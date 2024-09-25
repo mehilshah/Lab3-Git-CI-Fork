@@ -35,12 +35,7 @@ This lab focuses on practicing Git workflow and understanding Continuous Integra
 
 3. Identify the files with conflicts. Git will mark these in the affected files.
 
-4. Open each conflicting file and look for conflict markers:
-   <<<<<<< HEAD
-   Your changes
-   =======
-   Changes from the main branch
-   >>>>>>> main
+4. Open each conflicting file and look for conflict markers: ```<<<<<<< HEAD```
 
 5. Manually resolve the conflicts by editing the files. Decide which changes to keep or how to combine them.
 
